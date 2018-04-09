@@ -4,7 +4,8 @@ import createSagaMiddleware from 'redux-saga';
 import Sagas from './sagas';
 import Reducers from './reducers';
 
-const sagaMiddleware = createSagaMiddleware();
+const sagaMonitor = __DEV__ ? console.tron.createSagaMonitor() : null;
+const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 
 const middleware = [
   sagaMiddleware,
